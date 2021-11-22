@@ -1,0 +1,13 @@
+*.iml
+*.idea
+.idea
+/target
+/.gradle
+/build
+*/build
+build/
+/gradle
+gradlew
+gradlew.bat
+/flink-assignment/build
+/.allure
