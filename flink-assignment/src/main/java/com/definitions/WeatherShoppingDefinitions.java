@@ -1,5 +1,6 @@
 package com.definitions;
 
+import com.helper.WaitHelper;
 import com.pageObjects.CurrentTempPage;
 import com.testBase.TestBase;
 import io.cucumber.java.en.Given;
@@ -7,106 +8,79 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
+import org.hamcrest.Matchers;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class WeatherShoppingDefinitions extends TestBase {
 
-    Logger LOGGER = LogManager.getLogger(WeatherShoppingDefinitions.class);
-    String temperature;
+    CurrentTempPage currentTempPage = new CurrentTempPage(driver);
 
-    @Given("User landed to the weather shopper website")
-    public void Userlandedtotheweathershopperwebsite() {
-
-        driver.get("https://weathershopper.pythonanywhere.com/");
-        temperature = driver.findElement(By.xpath("//span[@id='temperature']")).getText();
-        LOGGER.info("Temp in Weather Shopper is " + temperature);
-
+    @Given("User landed to the weather shopper home page and checks the temperature")
+    public void User_landed_to_the_weather_shopper_home_page() {
+        currentTempPage.getTemperature();
     }
 
-    @When("user checks the temperature and chooses the shopping option")
-    public void userchecksthetemperatureandchoosestheshoppingoption() {
-
-        int i = Integer.parseInt(temperature.substring(0,2));
-        if (i< 19) {
-            LOGGER.info("Temperature is less than 19 Customer shop for moisturizers ");
-            driver.findElement(By.xpath("//a[@href='/moisturizer']")).click();
-        } else if (i > 34) {
-            LOGGER.info("Temperature is greater than 34 Customer shop for sunscreen ");
-            driver.findElement(By.xpath("//a[@href='/sunscreen']")).click();
-        } else {
-            LOGGER.info("Based on temperature Customer don't want to buy anything");
-        }
+    @When("user chooses the respective shopping option based on weather and clicks on buy")
+    public void user_checks_the_temperature_and_chooses_the_shopping_option() {
+        currentTempPage.getTemperature();
     }
 
-    @When("User shop for moisturizers if the weather is below {int} degrees")
-    public void user_shop_for_moisturizers_if_the_weather_is_below_degrees() {
-
-    }
-
-    @When("Shop for sunscreens if the weather is above {int} degrees")
-    public void shop_for_sunscreens_if_the_weather_is_above_degrees() {
-
-    }
-
-    @Then("User clicks on Buy moisturizer button")
-    public void user_clicks_on_buy_moisturizer_button() {
-
-    }
-
-    @Then("verify click should redirect to moisturizer page")
+    @Then("verify click should redirect to respective moisturizers and sunscreens page")
     public void verify_click_should_redirect_to_moisturizer_page() {
-
+        //Inside method through assert verifying the redirection
+        currentTempPage.shopBasedOnTemperature();
     }
 
-    @Given("User selects the least expensive moisturizer that contains Aloe")
-    public void user_selects_the_least_expensive_moisturizer_that_contains_aloe() {
-
+    @Given("User added two least expensive product in the card based on requirement")
+    public void User_added_two_least_expensive_product_in_the_card_based_on_requirement() {
+        currentTempPage.getTemperature();
+        currentTempPage.shopBasedOnTemperature();
+        currentTempPage.addItemInTheCart();
     }
 
     @Given("User selects the least expensive moisturizer that contains almond")
     public void user_selects_the_least_expensive_moisturizer_that_contains_almond() {
-
+        currentTempPage.shopBasedOnTemperature();
     }
 
-    @When("user verifies two item added in the cart")
+    @When("user verifies two item should be added in the cart clicks on cart button")
     public void user_verifies_two_item_added_in_the_cart() {
-
+        currentTempPage.verifyCartItem();
     }
 
-    @Then("User clicks on cart button")
-    public void user_clicks_on_cart_button() {
-
-    }
-
-    @Then("Verify page should redirect to checkout")
+    @Then("Verify page should redirect to checkout page successfully")
     public void verify_page_should_redirect_to_checkout() {
-
+        currentTempPage.verifyCheckoutPageRedirection();
     }
 
-    @Given("User landed to the payment screen and verify the items in the cart")
-    public void user_landed_to_the_payment_screen_and_verify_the_items_in_the_cart() {
+    @Given("User landed to the checkout page and verify the items in the cart clicks on Pay with card option")
+    public void user_landed_to_the_checkout_page_and_verify_the_items_in_the_cart() {
 
+        currentTempPage.getTemperature();
+        currentTempPage.shopBasedOnTemperature();
+        currentTempPage.addItemInTheCart();
+        currentTempPage.verifyCartItem();
+        currentTempPage.verifyCheckoutPageRedirection();
+        currentTempPage.verifyCheckoutPageItems();
     }
 
-    @Given("click on Pay with card option")
-    public void click_on_pay_with_card_option() {
-
+    @When("user provides all the required payment details clicks on Pay button")
+    public void user_provides_all_the_required_payment_details_clicks_on_pay_button() {
+        currentTempPage.paymentDetails();
     }
 
-    @When("user provides all the required payment details")
-    public void user_provides_all_the_required_payment_details() {
-
-    }
-
-    @When("click on Pay button")
-    public void click_on_pay_button() {
-
-    }
-
-    @Then("Payment should successfully done")
-    public void payment_should_successfully_done() {
-
+    @Then("Verify payment page once payment done successfully")
+    public void verify_payment_page_once_payment_done_successfully() {
+        currentTempPage.verifyPaymentPage();
     }
 
 }

@@ -1,26 +1,21 @@
-Feature:Complete the moisturizer shopping based on weather from weather shopper Website
+Feature:Complete the moisturizer/sunscreens shopping based on weather from weather shopper Website
 
   Scenario: WS-01 Verify user chooses the correct shopping option based on weather
 
-    Given User landed to the weather shopper website
-    When user checks the temperature and chooses the shopping option
-    And User shop for moisturizers if the weather is below 19 degrees
-    And Shop for sunscreens if the weather is above 34 degrees
-    Then User clicks on Buy moisturizer button
-    Then verify click should redirect to moisturizer page
+    Given User landed to the weather shopper home page and checks the temperature
+    When user chooses the respective shopping option based on weather and clicks on buy
+    Then verify click should redirect to respective moisturizers and sunscreens page
+    #Both the condition covered in the definition (moisturizers and sunscreens)
 
-  Scenario: WS-02 Add moisturizer based on condition and move to the checkout page
+  Scenario: WS-02 Add moisturizer/sunscreens based on condition and move to the checkout page
 
-    Given User selects the least expensive moisturizer that contains Aloe
-    And User selects the least expensive moisturizer that contains almond
-    When user verifies two item added in the cart
-    Then User clicks on cart button
-    And Verify page should redirect to checkout
+    Given User added two least expensive product in the card based on requirement
+    And user verifies two item should be added in the cart clicks on cart button
+    Then Verify page should redirect to checkout page successfully
+    #User adding both moisturizers and sunscreens based on requirement covered in the code
 
   Scenario: WS-03 Verify the shopping cart and complete the payment
 
-    Given User landed to the payment screen and verify the items in the cart
-    And click on Pay with card option
-    When user provides all the required payment details
-    And click on Pay button
-    Then Payment should successfully done
+    Given User landed to the checkout page and verify the items in the cart clicks on Pay with card option
+    When user provides all the required payment details clicks on Pay button
+    Then Verify payment page once payment done successfully
