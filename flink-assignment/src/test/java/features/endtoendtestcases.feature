@@ -3,7 +3,7 @@ Feature:Complete the moisturizer shopping based on weather from weather shopper 
   Scenario: WS-01 Verify user chooses the correct shopping option based on weather
 
     Given User landed to the weather shopper website
-    When user checks the temperature
+    When user checks the temperature and chooses the shopping option
     And User shop for moisturizers if the weather is below 19 degrees
     And Shop for sunscreens if the weather is above 34 degrees
     Then User clicks on Buy moisturizer button

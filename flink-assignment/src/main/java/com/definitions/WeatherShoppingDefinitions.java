@@ -1,32 +1,51 @@
 package com.definitions;
 
+import com.pageObjects.CurrentTempPage;
+import com.testBase.TestBase;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.apache.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.openqa.selenium.By;
 
-public class WeatherShoppingDefinitions {
+
+public class WeatherShoppingDefinitions extends TestBase {
+
+    Logger LOGGER = LogManager.getLogger(WeatherShoppingDefinitions.class);
+    String temperature;
 
     @Given("User landed to the weather shopper website")
     public void Userlandedtotheweathershopperwebsite() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\sutapamaji\\Downloads\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://weathershopper.pythonanywhere.com/");
+
+        driver.get("https://weathershopper.pythonanywhere.com/");
+        temperature = driver.findElement(By.xpath("//span[@id='temperature']")).getText();
+        LOGGER.info("Temp in Weather Shopper is " + temperature);
+
     }
 
-    @When("user checks the temperature")
-    public void userChecksTheTemperature() {
+    @When("user checks the temperature and chooses the shopping option")
+    public void userchecksthetemperatureandchoosestheshoppingoption() {
+
+        int i = Integer.parseInt(temperature.substring(0,2));
+        if (i< 19) {
+            LOGGER.info("Temperature is less than 19 Customer shop for moisturizers ");
+            driver.findElement(By.xpath("//a[@href='/moisturizer']")).click();
+        } else if (i > 34) {
+            LOGGER.info("Temperature is greater than 34 Customer shop for sunscreen ");
+            driver.findElement(By.xpath("//a[@href='/sunscreen']")).click();
+        } else {
+            LOGGER.info("Based on temperature Customer don't want to buy anything");
+        }
     }
 
     @When("User shop for moisturizers if the weather is below {int} degrees")
-    public void user_shop_for_moisturizers_if_the_weather_is_below_degrees(int temp1) {
+    public void user_shop_for_moisturizers_if_the_weather_is_below_degrees() {
 
     }
 
     @When("Shop for sunscreens if the weather is above {int} degrees")
-    public void shop_for_sunscreens_if_the_weather_is_above_degrees(int temp2) {
+    public void shop_for_sunscreens_if_the_weather_is_above_degrees() {
 
     }
 
