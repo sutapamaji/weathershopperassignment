@@ -1,6 +1,8 @@
 package com.pageObjects;
 
+import com.enums.Browsers;
 import com.helper.WaitHelper;
+import com.testBase.TestBase;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.apache.log4j.LogManager;
@@ -150,18 +152,41 @@ public class CurrentTempPage {
 
     @SneakyThrows
     public void paymentDetails() {
-
         WebElement element = driver.findElement(By.xpath("//iframe[@class='stripe_checkout_app']"));
         driver.switchTo().frame(element);
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("abc@gmail.com");
-        String cnum = "4242424242424242";
-        for (char ch : cnum.toCharArray()) {
+        String cardNumber = "4000056655665556";
+        for (char ch : cardNumber.toCharArray()) {
             switch (Integer.parseInt(String.valueOf(ch))) {
+                case 0:
+                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD0);
+                    break;
                 case 1:
-                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD2);
+                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD1);
                     break;
                 case 2:
+                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD2);
+                    break;
+                case 3:
+                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD3);
+                    break;
+                case 4:
                     driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD4);
+                    break;
+                case 5:
+                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD5);
+                    break;
+                case 6:
+                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD6);
+                    break;
+                case 7:
+                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD7);
+                    break;
+                case 8:
+                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD8);
+                    break;
+                case 9:
+                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD9);
                     break;
             }
         }
@@ -169,16 +194,15 @@ public class CurrentTempPage {
         driver.findElement(By.id("cc-csc")).sendKeys("567");
         driver.findElement(By.id("billing-zip")).sendKeys("500081");
         driver.findElement(By.xpath("//span[@class='iconTick']")).click();
+        driver.switchTo().defaultContent();
     }
 
     @SneakyThrows
     public void verifyPaymentPage() {
-        if (driver.findElement(By.xpath("//*[contains(text(),'PAYMENT SUCCESS')]")).isDisplayed()) {
-            LOGGER.info(" Payment completed successfully");
-        } else {
-            LOGGER.error("Unsuccessful Payment, please verify the card details");
-        }
+
+        WebElement element = driver.findElement(By.xpath("//*[contains(text(),'PAYMENT SUCCESS')]"));
+        waitHelper.WaitForElement(element, 20);
+        assertThat("Payment completed successfully",
+                element.isDisplayed(), Matchers.equalTo(true));
     }
-
-
 }

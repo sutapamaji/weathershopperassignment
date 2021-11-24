@@ -12,12 +12,13 @@ import com.enums.OS;
 
 public class TestBase {
 
-    public  static WebDriver driver;
+    public static WebDriver driver;
 
 
     public WebDriver selectBrowser(String browser) {
         if (System.getProperty("os.name").toLowerCase().contains(OS.WINDOW.name().toLowerCase())) {
             if (browser.equalsIgnoreCase(Browsers.CHROME.name())) {
+                //Chrome should be of version 96
                 WebDriverManager.chromedriver().version("96.0.4664.45").setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("start-maximized");
@@ -25,11 +26,12 @@ public class TestBase {
                 options.addArguments("--disable-browser-side-navigation");
                 driver = new ChromeDriver(options);
             } else if (browser.equalsIgnoreCase(Browsers.FIREFOX.name())) {
-                System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/src/test/drivers/geckodriver.exe");
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
             }
         } else if (System.getProperty("os.name").toLowerCase().contains(OS.MAC.name().toLowerCase())) {
             if (browser.equalsIgnoreCase(Browsers.CHROME.name())) {
+                //Chrome should be of version 96
                 WebDriverManager.chromedriver().version("96.0.4664.45").setup();
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("start-maximized");
@@ -37,7 +39,7 @@ public class TestBase {
                 options.addArguments("--disable-browser-side-navigation");
                 driver = new ChromeDriver(options);
             } else if (browser.equalsIgnoreCase(Browsers.FIREFOX.name())) {
-                System.setProperty("webdriver.firefox.marionette", System.getProperty("user.dir") + "/src/test/drivers/geckodriver");
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
             }
         }

@@ -1,23 +1,10 @@
 package com.definitions;
 
-import com.helper.WaitHelper;
 import com.pageObjects.CurrentTempPage;
 import com.testBase.TestBase;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
-import org.hamcrest.Matchers;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class WeatherShoppingDefinitions extends TestBase {
