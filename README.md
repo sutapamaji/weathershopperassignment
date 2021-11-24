@@ -55,20 +55,23 @@ Scenarios covered end to end flow of the assignment
    
    ![image](https://user-images.githubusercontent.com/72621415/143213860-b0d19abd-9832-4b9a-b2f7-39ea35128cee.png)
 
-   b. Go to endtoendtestcases.feature to start the execution.
+   b. Go to endtoendtestcases.feature to start the execution. In the left start button will be availble for the feature , please click on Run the Test.
     
     Path : weathershopperassignment/flink-assignment/src/test/java/features/endtoendtestcases.feature
     
    ![image](https://user-images.githubusercontent.com/72621415/143213928-1bb71a8a-3bec-49bc-96ea-2390ca73fd2c.png)
 
-   c. Scenario can be executed independently and complete feature at a time as well.
+   c. Scenario can be executed independently and with the complete feature at a time as well.
       To execute complete feature execute Feature "Complete the moisturizer/sunscreens shopping based on weather from weather shopper Website"
       
-      ![image](https://user-images.githubusercontent.com/72621415/143213340-0bfcbb6e-7876-438e-844e-02ae593c706d.png)
+      <img width="978" alt="Screenshot 2021-11-24 at 10 21 19 PM" src="https://user-images.githubusercontent.com/72621415/143281157-4d63d83d-0d6d-468c-aeb6-98b1e7638d34.png">
+
       
-   d.To execute individual Scenario execute any scenario independently:
+   d.To execute individual Scenario, select any scenario , click the start button and Run the Test.
    
-      ![image](https://user-images.githubusercontent.com/72621415/143213630-f4b15117-2de8-4a51-b807-5ede2214dcd9.png)
+   <img width="978" alt="Screenshot 2021-11-24 at 10 18 38 PM" src="https://user-images.githubusercontent.com/72621415/143280794-5f61f781-bb25-4ee7-b20f-df639390de51.png">
+
+    
 
       
 
