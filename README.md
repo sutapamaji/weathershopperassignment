@@ -63,8 +63,7 @@ Scenarios covered end to end flow of the assignment
 
    c. Scenario can be executed independently and with the complete feature at a time as well.
       To execute complete feature execute Feature "Complete the moisturizer/sunscreens shopping based on weather from weather shopper Website"
-      
-      <img width="978" alt="Screenshot 2021-11-24 at 10 21 19 PM" src="https://user-images.githubusercontent.com/72621415/143281157-4d63d83d-0d6d-468c-aeb6-98b1e7638d34.png">
+    <img width="978" alt="Screenshot 2021-11-24 at 10 23 27 PM" src="https://user-images.githubusercontent.com/72621415/143281414-77c15f46-6194-4694-a691-f73f861b7ebf.png">
 
       
    d.To execute individual Scenario, select any scenario , click the start button and Run the Test.
