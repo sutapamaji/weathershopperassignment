@@ -44,8 +44,18 @@ Scenarios covered end to end flow of the assignment
 3. Wait for all the dependency to be installed automatically
 4. Steps to execute test:
    a. Go to ServiceHooks class select preferred browser (default browser Google Chrome)
+   ![image](https://user-images.githubusercontent.com/72621415/143213860-b0d19abd-9832-4b9a-b2f7-39ea35128cee.png)
+
    b. Goto endtoendtestcases.feature to start the execution.
+   ![image](https://user-images.githubusercontent.com/72621415/143213928-1bb71a8a-3bec-49bc-96ea-2390ca73fd2c.png)
+
    c. Scenario can be executed independently and complete feature at a time as well.
-   ![](../../../Desktop/Screenshot 2021-11-24 at 2.50.22 PM.png)
-5. 
+      To execute complete feature execute Feature "Complete the moisturizer/sunscreens shopping based on weather from weather shopper Website"
+      ![image](https://user-images.githubusercontent.com/72621415/143213340-0bfcbb6e-7876-438e-844e-02ae593c706d.png)
+      
+      To execute individual Scenario execute any scenario independently:
+      ![image](https://user-images.githubusercontent.com/72621415/143213630-f4b15117-2de8-4a51-b807-5ede2214dcd9.png)
+
+      
+
 
