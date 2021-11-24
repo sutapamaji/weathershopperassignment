@@ -32,7 +32,7 @@ This framework contains sample code containing:
 Scenarios covered end to end flow of the assignment
 
 
-#Installation Prerequisite
+# Installation Prerequisite
 
 1. Clone the repository from GIT HUB
    a. https://github.com/sutapamaji/weathershopperassignment
@@ -44,7 +44,7 @@ Scenarios covered end to end flow of the assignment
 3. Wait for all the dependency to be installed automatically
 4. Go to plugins and Install Cucumber plugin (if not installed automatically)
 
-#Steps to execute test:
+# Steps to execute test:
    a. Go to ServiceHooks class select preferred browser (default browser selected as Google Chrome)
    ![image](https://user-images.githubusercontent.com/72621415/143213860-b0d19abd-9832-4b9a-b2f7-39ea35128cee.png)
 
