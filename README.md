@@ -64,14 +64,10 @@ Scenarios covered end to end flow of the assignment
    c. Scenario can be executed independently and complete feature at a time as well.
       To execute complete feature execute Feature "Complete the moisturizer/sunscreens shopping based on weather from weather shopper Website"
       
-       Path : weathershopperassignment/flink-assignment/src/test/java/features/endtoendtestcases.feature
-      
       ![image](https://user-images.githubusercontent.com/72621415/143213340-0bfcbb6e-7876-438e-844e-02ae593c706d.png)
       
    d.To execute individual Scenario execute any scenario independently:
    
-    Path : weathershopperassignment/flink-assignment/src/test/java/features/endtoendtestcases.feature
-    
       ![image](https://user-images.githubusercontent.com/72621415/143213630-f4b15117-2de8-4a51-b807-5ede2214dcd9.png)
 
       
