@@ -35,6 +35,15 @@ This framework contains sample code containing:
 3 Scenarios
 Scenarios covered end to end flow of the assignment
 
+# Manual Test cases
+
+Detail steps of manual test cases written in ManualTestCaseInDetail file
+
+Path : weathershopperassignment/flink-assignment/src/test/java/features/ManualTestCaseInDetail
+
+In feature file scenario wise end to end cases are covered , inside code both product categories cover as per requirement
+
+Path : weathershopperassignment/flink-assignment/src/test/java/features/endtoendtestcases.feature
 
 # Installation Prerequisite
 
