@@ -19,3 +19,4 @@ Feature:Complete the moisturizer/sunscreens shopping based on weather from weath
     Given User landed to the checkout page and verify the items in the cart clicks on Pay with card option
     When user provides all the required payment details clicks on Pay button
     Then Verify payment page once payment done successfully
+    #End to End scenario cover here independently

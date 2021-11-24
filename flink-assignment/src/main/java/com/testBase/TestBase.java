@@ -14,6 +14,11 @@ public class TestBase {
 
     public static WebDriver driver;
 
+    /**
+     * Based on OS (Mac or Windows) and Browser Choice webdriver instance going to initialize
+     * @param browser
+     * @return
+     */
 
     public WebDriver selectBrowser(String browser) {
         if (System.getProperty("os.name").toLowerCase().contains(OS.WINDOW.name().toLowerCase())) {

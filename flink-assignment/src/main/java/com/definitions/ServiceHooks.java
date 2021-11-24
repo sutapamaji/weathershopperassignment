@@ -8,6 +8,9 @@ import io.cucumber.java.Before;
 public class ServiceHooks {
     TestBase testBase;
 
+    /**
+     * WebDriver instance initialization
+     */
     @Before
     public void initializeTest() {
         testBase = new TestBase();

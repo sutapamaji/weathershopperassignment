@@ -1,8 +1,6 @@
 package com.pageObjects;
 
-import com.enums.Browsers;
 import com.helper.WaitHelper;
-import com.testBase.TestBase;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.apache.log4j.LogManager;
@@ -22,9 +20,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @AllArgsConstructor
 public class CurrentTempPage {
 
+    private WebDriver driver;
     String temp;
     String product = null;
-    private WebDriver driver;
     WaitHelper waitHelper;
     Logger LOGGER = LogManager.getLogger(CurrentTempPage.class);
 
@@ -34,6 +32,9 @@ public class CurrentTempPage {
         waitHelper = new WaitHelper(driver);
     }
 
+    /**
+     * Get the desired URL and verify the Temperature ,then assign it to global variable
+     */
     @SneakyThrows
     public void getTemperature() {
         try {
@@ -45,6 +46,9 @@ public class CurrentTempPage {
         }
     }
 
+    /**
+     * Validate based on temperature happened successfully or not using assert
+     */
     @SneakyThrows
     public void shopBasedOnTemperature() {
         try {
@@ -73,6 +77,9 @@ public class CurrentTempPage {
         }
     }
 
+    /**
+     * Verify product category by getting the current URL and assign to global variable
+     */
     @SneakyThrows
     public void verifyProductCategory() {
         try {
@@ -99,6 +106,9 @@ public class CurrentTempPage {
         verifyTheProductToBeAdded(product);
     }
 
+    /**
+     * @param product Add the product in the cart based on requirement
+     */
     @SneakyThrows
     public void verifyTheProductToBeAdded(String product) {
         if (product.contains("moisturizer")) {
@@ -114,6 +124,9 @@ public class CurrentTempPage {
         }
     }
 
+    /**
+     * Verification of the cart items
+     */
     @SneakyThrows
     public void verifyCartItem() {
         String numberOfItems = driver.findElement(By.xpath("//span[@id='cart']")).getText();
@@ -125,18 +138,23 @@ public class CurrentTempPage {
         }
     }
 
+    /**
+     * Verification of successful redirection to the checkout page user assert
+     */
     @SneakyThrows
     public void verifyCheckoutPageRedirection() {
 
         assertThat("Successfully redirected to Checkout page",
                 driver.findElement(By.xpath("//h2[contains(text(),'Checkout')]")).isDisplayed(),
                 Matchers.equalTo(true));
-
     }
 
+    /**
+     * Proceed for payment page after successful verification of Checkout page
+     */
     @SneakyThrows
     public void verifyCheckoutPageItems() {
-        //Verify 2 items present in the table or not
+        LOGGER.info("Verify 2 items present in the checkout page");
         List<WebElement> table = driver.findElements(By.xpath("//table[@class='table table-striped']/tbody/tr"));
         LOGGER.info("Table size is " + table.size());
         if (table.size() == 2) {
@@ -150,59 +168,72 @@ public class CurrentTempPage {
 
     }
 
+    /**
+     * Fill all the payment details and make payment
+     */
     @SneakyThrows
     public void paymentDetails() {
-        WebElement element = driver.findElement(By.xpath("//iframe[@class='stripe_checkout_app']"));
-        driver.switchTo().frame(element);
-        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("abc@gmail.com");
-        String cardNumber = "4000056655665556";
-        for (char ch : cardNumber.toCharArray()) {
-            switch (Integer.parseInt(String.valueOf(ch))) {
-                case 0:
-                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD0);
-                    break;
-                case 1:
-                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD1);
-                    break;
-                case 2:
-                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD2);
-                    break;
-                case 3:
-                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD3);
-                    break;
-                case 4:
-                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD4);
-                    break;
-                case 5:
-                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD5);
-                    break;
-                case 6:
-                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD6);
-                    break;
-                case 7:
-                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD7);
-                    break;
-                case 8:
-                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD8);
-                    break;
-                case 9:
-                    driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD9);
-                    break;
+        try {
+            WebElement element = driver.findElement(By.xpath("//iframe[@class='stripe_checkout_app']"));
+            driver.switchTo().frame(element);
+            driver.findElement(By.xpath("//input[@id='email']")).sendKeys("abc@gmail.com");
+            String cardNumber = "4000056655665556";
+            for (char ch : cardNumber.toCharArray()) {
+                switch (Integer.parseInt(String.valueOf(ch))) {
+                    case 0:
+                        driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD0);
+                        break;
+                    case 1:
+                        driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD1);
+                        break;
+                    case 2:
+                        driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD2);
+                        break;
+                    case 3:
+                        driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD3);
+                        break;
+                    case 4:
+                        driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD4);
+                        break;
+                    case 5:
+                        driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD5);
+                        break;
+                    case 6:
+                        driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD6);
+                        break;
+                    case 7:
+                        driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD7);
+                        break;
+                    case 8:
+                        driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD8);
+                        break;
+                    case 9:
+                        driver.findElement(By.id("card_number")).sendKeys(Keys.NUMPAD9);
+                        break;
+                }
             }
+            driver.findElement(By.id("cc-exp")).sendKeys("1/22");
+            driver.findElement(By.id("cc-csc")).sendKeys("567");
+            driver.findElement(By.id("billing-zip")).sendKeys("500081");
+            driver.findElement(By.xpath("//span[@class='iconTick']")).click();
+            driver.switchTo().defaultContent();
+        } catch (Exception e) {
+            LOGGER.error("Invalid details");
         }
-        driver.findElement(By.id("cc-exp")).sendKeys("1/22");
-        driver.findElement(By.id("cc-csc")).sendKeys("567");
-        driver.findElement(By.id("billing-zip")).sendKeys("500081");
-        driver.findElement(By.xpath("//span[@class='iconTick']")).click();
-        driver.switchTo().defaultContent();
     }
 
+    /**
+     * Verification of successful payment using assert
+     */
     @SneakyThrows
     public void verifyPaymentPage() {
-
-        WebElement element = driver.findElement(By.xpath("//*[contains(text(),'PAYMENT SUCCESS')]"));
-        waitHelper.WaitForElement(element, 20);
-        assertThat("Payment completed successfully",
-                element.isDisplayed(), Matchers.equalTo(true));
+        try {
+            WebElement element = driver.findElement(By.xpath("//*[contains(text(),'PAYMENT SUCCESS')]"));
+            waitHelper.WaitForElement(element, 20);
+            assertThat("Payment completed successfully",
+                    element.isDisplayed(), Matchers.equalTo(true));
+        } catch (Exception e) {
+            LOGGER.info("Unsuccessful Payment, Please retry");
+        }
     }
 }
