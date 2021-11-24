@@ -42,6 +42,7 @@ Scenarios covered end to end flow of the assignment
    2. Supported OS (mac and windows)
    3. Supported Browser (Google Chrome and Firefox)
 3. Wait for all the dependency to be installed automatically
+4. Go to plugins and Install Cucumber plugin (if not installed automatically)
 
 #Steps to execute test:
    a. Go to ServiceHooks class select preferred browser (default browser selected as Google Chrome)
