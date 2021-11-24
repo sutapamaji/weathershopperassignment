@@ -1,0 +1,31 @@
+Feature:Complete the moisturizer/sunscreens shopping based on weather from weather shopper Website
+
+Steps 1:
+
+    User landed to the weather shopper home page and checks the temperature
+    If weather is below 19 degrees shop for moisturizers and if the weather is above 34 degrees shop for suncreens
+
+ Step 2 : Condition : weather is below 19 degrees
+
+    User should redirect to moisturizers page
+    Then user should select the least expensive mositurizer that contains Aloe first.
+    And select the least expensive moisturizer that contains almond as second moisturizer
+    User Clicks on cart once two items added in the cart
+    Page should redirect to Checkout page
+    Verify the checkout page weather two items present for payment
+    After successful verification user proceed for payment and clicks on pay with Card
+    User provided all card details successfully
+    Payment completed successfully for the products
+
+
+Step 3: Condition : weather is above 34 degrees
+
+    User should redirect to suncreen page
+    Then user should select the least expensive sunscreen that is SPF-50 first
+    And select the least expensive sunscreen that is SPF-30 as second
+    User Clicks on cart once two items added in the cart
+    Page should redirect to Checkout page
+    Verify the checkout page weather two items present for payment
+    After successful verification user proceed for payment and clicks on pay with Card
+    User provided all card details successfully
+    Payment completed successfully for the products
