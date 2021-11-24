@@ -14,10 +14,14 @@ Given, When, Then, And, But (steps)
 
 # Code Structure
 
+weathershopperassignment framework structured in three layers
+
 First Layer :
+
 Feature File - Test Cases written in plain english
 
 Second Layer :
+
 Step Definitions - feature file binded with step definitions where only method mentioned
 Step Definition is a java method which runs against the matched Gherkin step. Usually gets annotated with @Given, @When, @And, @Then. Cucumber finds these methods with the help of "glue" (java package) code in Cucumber Options.
 
@@ -42,7 +46,7 @@ Scenarios covered end to end flow of the assignment
    2. Supported OS (mac and windows)
    3. Supported Browser (Google Chrome and Firefox)
 3. Wait for all the dependency to be installed automatically
-4. Go to plugins and Install Cucumber plugin (if not installed automatically)
+4. Imporatant : Go to plugins and Install Cucumber plugin (if not installed automatically)
 
 # Steps to execute test:
    a. Go to ServiceHooks class select preferred browser (default browser selected as Google Chrome)
