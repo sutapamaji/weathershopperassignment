@@ -46,16 +46,28 @@ Scenarios covered end to end flow of the assignment
 
 # Steps to execute test:
    a. Go to ServiceHooks class select preferred browser (default browser selected as Google Chrome)
+   
+   Path : weathershopperassignment/flink-assignment/src/main/java/com/definitions/ServiceHooks.java
+   
    ![image](https://user-images.githubusercontent.com/72621415/143213860-b0d19abd-9832-4b9a-b2f7-39ea35128cee.png)
 
-   b. Goto endtoendtestcases.feature to start the execution.
+   b. Go to endtoendtestcases.feature to start the execution.
+    
+    Path : weathershopperassignment/flink-assignment/src/test/java/features/endtoendtestcases.feature
+    
    ![image](https://user-images.githubusercontent.com/72621415/143213928-1bb71a8a-3bec-49bc-96ea-2390ca73fd2c.png)
 
    c. Scenario can be executed independently and complete feature at a time as well.
       To execute complete feature execute Feature "Complete the moisturizer/sunscreens shopping based on weather from weather shopper Website"
+      
+       Path : weathershopperassignment/flink-assignment/src/test/java/features/endtoendtestcases.feature
+      
       ![image](https://user-images.githubusercontent.com/72621415/143213340-0bfcbb6e-7876-438e-844e-02ae593c706d.png)
       
    d.To execute individual Scenario execute any scenario independently:
+   
+    Path : weathershopperassignment/flink-assignment/src/test/java/features/endtoendtestcases.feature
+    
       ![image](https://user-images.githubusercontent.com/72621415/143213630-f4b15117-2de8-4a51-b807-5ede2214dcd9.png)
 
       
