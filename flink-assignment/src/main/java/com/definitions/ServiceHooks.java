@@ -14,7 +14,7 @@ public class ServiceHooks {
     @Before
     public void initializeTest() {
         testBase = new TestBase();
-        testBase.selectBrowser(Browsers.FIREFOX.name());
+        testBase.selectBrowser(Browsers.CHROME.name());
     }
 
     @After
