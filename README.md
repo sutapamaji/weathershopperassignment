@@ -54,9 +54,11 @@ Path : weathershopperassignment/flink-assignment/src/test/java/features/endtoend
    1. Prerequisite Java 8 should be installed the system
    2. Supported OS (mac and windows)
    3. Supported Browser (Google Chrome (version 96) and Firefox)
+      1.Note: After changing browser if IDE not recognising ,please clean and build the solution once.
    4. Important : Please change the Chrome version In TestBase.java class (line no : 27) if runnable system having different chrome version
 3. Wait for all the dependency to be installed automatically
 4. Important : Go to plugins and Install Cucumber plugin (if not installed automatically)
+
 
 # Steps to execute test:
    a. Go to ServiceHooks class select preferred browser (default browser selected as Google Chrome)
